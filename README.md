@@ -1,46 +1,68 @@
-# Multi-step Blog
+# QubicBall Frontend Test — Dashboard Application
 
-## Features
+## 🚀 Features
 
-### 1. Multi-Step Blog Creation Wizard
-- Guided, step-by-step process to create a blog post
-- Includes 4 clear stages
-    - **Blog Metadata** – Input blog title and author name
-    - **Blog Summary & Category** – Write a brief summary and choose a category (Tech, Lifestyle, Business, etc.)
-    - **Blog Content** – Write the full blog post in a text area.
-    - **Review & Submit** – Review all data before submission, with the option to go back and edit
-- Each step includes validation for required fields
-- Smooth navigation using Next and Back buttons
-- Maintains form state across steps using useState
+### 1. API Integration (SSR + API Routes)
+- Fetches user and post data from JSONPlaceholder (https://jsonplaceholder.typicode.com)
+- Uses Next.js Server Components for SSR data fetching
+- Implements API Routes for handling data (/api/users, /api/users/[id]/posts)
+- Includes error handling and loading states
+- Uses caching and no-store fetch policies for performance control
 
-### 2. Blog List Page
-- Displays a list of created blog posts with:
-    - Title
-    - Author
-    - Summary
-    - Category
-    - Created Date
-- Clicking a post navigates to its detail page.
+### 2. Dashboard UI
+- Responsive layout built with Tailwind CSS and Shadcn UI
+- Includes: 
+    - Sidebar navigation (collapsible on mobile)
+    - Header with breadcrumb navigation
+    - User table with sorting, filtering, and search functionality
+    - Pagination for user and post tables
+- Supports dark mode toggle with persistence
 
-### 3. Blog Detail Page
-- Shows full blog content with metadata: Title, Author, Summary, Category, Content, and Date
-- Clean and readable layout for an optimal reading experience
+### 3. Dynamic Routing
+- Dynamic user detail pages at /dashboard/users/[id]
+- Displays :
+    - User information
+    - Associated posts fetched via user ID
 
-## Tech Stack
+### 4. Forms & Validation
+- Editable form for updating user information
+- Uses React Hook Form + Zod schema validation
+- Real-time field validation with helpful error messages
 
-- **Framework**: Next.JS (v.15)
-- **Storage**: Local Storage
-- **Icons**: Lucide
-- **components**: Shadcn
+### 5. JWT Authentication (using jose)
+- Mock login credentials:
+```bash
+    Username: testuser
+    Password: testpass
+```
+- Tokens generated and verified using jose
+- Middleware protects /dashboard and /dashboard/users/[id] routes
+- Logout functionality clears JWT tokens
+
+### 6. Performance & Type Safety
+- Fully typed with TypeScript, no any used
+- Uses useMemo and useCallback for optimized rendering
+- Reusable components:
+    - Sidebar, Header, UserTable, PostTable, SearchBar, Pagination, FormField
+
+## 🧱 Tech Stack
+
+- **Framework**: Next.JS (v.14) App Router
 - **Language**: TypeScript
+- **Styling**: Tailwind CSS + Shadcn UI
+- **Icons**: Lucide React
+- **Validation**: Zod
+- **Form**: React Hook Form
+- **Auth**: JWT with jose
+- **Deployment**: Vercel (serverless)
 
 
-## Installation & Setup
+## ⚙️ Installation & Setup
 
 1. Clone the repository: 
 ```bash
-git clone https://github.com/edoGultom/
-cd 
+git clone https://github.com/edoGultom/qubicball-frontend-test
+cd qubicball-frontend-test
 ```
 
 2. Install dependencies:

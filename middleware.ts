@@ -6,8 +6,7 @@ export async function middleware(request: NextRequest) {
     const token = request.cookies.get('token')?.value;
 
     const isAuthPage = request.nextUrl.pathname === '/login';
-    const isProtectedRoute = request.nextUrl.pathname.startsWith('/dashboard') ||
-        request.nextUrl.pathname.startsWith('/users');
+    const isProtectedRoute = request.nextUrl.pathname.startsWith('/dashboard')
 
     if (isAuthPage) {
         if (token && (await verifyToken(token))) {
