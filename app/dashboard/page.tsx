@@ -5,6 +5,8 @@ import { getPosts } from "@/services/posts.service";
 import { getUsers } from "@/services/users.service";
 import { Building2, Mail, Users } from "lucide-react";
 
+export const dynamic = "force-dynamic"; // pastikan page ini selalu SSR
+
 export default async function DashboardPage() {
   const [users, posts] = await Promise.all([
     getUsers(),
