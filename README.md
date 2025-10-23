@@ -70,6 +70,13 @@ cd qubicball-frontend-test
 npm install
 ```
 
+2. Create **.env.local**:
+```bash
+    NEXT_PUBLIC_API_URL=https://jsonplaceholder.typicode.com
+    NEXT_PUBLIC_JWT_SECRET=abcd1234
+    NEXT_PUBLIC_BASE_URL=http://localhost:3000
+```
+
 3. Run the development server:
 ```bash
 npm run dev
