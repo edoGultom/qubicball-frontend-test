@@ -1,9 +1,54 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Multi-step Blog
 
-## Getting Started
+## Features
 
-First, run the development server:
+### 1. Multi-Step Blog Creation Wizard
+- Guided, step-by-step process to create a blog post
+- Includes 4 clear stages
+    - **Blog Metadata** – Input blog title and author name
+    - **Blog Summary & Category** – Write a brief summary and choose a category (Tech, Lifestyle, Business, etc.)
+    - **Blog Content** – Write the full blog post in a text area.
+    - **Review & Submit** – Review all data before submission, with the option to go back and edit
+- Each step includes validation for required fields
+- Smooth navigation using Next and Back buttons
+- Maintains form state across steps using useState
 
+### 2. Blog List Page
+- Displays a list of created blog posts with:
+    - Title
+    - Author
+    - Summary
+    - Category
+    - Created Date
+- Clicking a post navigates to its detail page.
+
+### 3. Blog Detail Page
+- Shows full blog content with metadata: Title, Author, Summary, Category, Content, and Date
+- Clean and readable layout for an optimal reading experience
+
+## Tech Stack
+
+- **Framework**: Next.JS (v.15)
+- **Storage**: Local Storage
+- **Icons**: Lucide
+- **components**: Shadcn
+- **Language**: TypeScript
+
+
+## Installation & Setup
+
+1. Clone the repository: 
+```bash
+git clone https://github.com/edoGultom/
+cd 
+```
+
+2. Install dependencies:
+```bash
+npm install
+```
+
+3. Run the development server:
 ```bash
 npm run dev
 # or
@@ -13,24 +58,3 @@ pnpm dev
 # or
 bun dev
 ```
-
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
