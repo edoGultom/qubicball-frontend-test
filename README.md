@@ -74,7 +74,7 @@ npm install
 ```bash
     NEXT_PUBLIC_API_URL=https://jsonplaceholder.typicode.com
     NEXT_PUBLIC_JWT_SECRET=abcd1234
-    NEXT_PUBLIC_BASE_URL=https://qubicball-frontend-test-j3sw.vercel.app
+    NEXT_PUBLIC_BASE_URL=http://localhost:3000
 ```
 
 4. Run the development server:
