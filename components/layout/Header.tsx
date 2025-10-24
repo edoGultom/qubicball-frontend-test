@@ -1,5 +1,8 @@
+"use client"
 import { LogOut, Menu, Moon, Sun } from "lucide-react";
 import { useTheme } from "next-themes";
+import { usePathname, useRouter } from "next/navigation";
+import React, { useEffect, useState } from "react";
 import { Button } from "../ui/button";
 import {
   DropdownMenu,
@@ -7,8 +10,6 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "../ui/dropdown-menu";
-import { usePathname, useRouter } from "next/navigation";
-import React from "react";
 
 interface HeaderProps {
   onMenuClick: () => void;
@@ -16,14 +17,19 @@ interface HeaderProps {
 
 const Header: React.FC<HeaderProps> = ({ onMenuClick }) => {
   const router = useRouter();
-  const { theme, setTheme } = useTheme();
+  const { setTheme, resolvedTheme } = useTheme();
   const pathname = usePathname();
   const pathSegments = pathname.split("/").filter(Boolean);
+  const [mounted, setMounted] = useState(false);
+  useEffect(() => setMounted(true), []);
+
   const handleLogout = async () => {
     await fetch("/api/auth/logout", { method: "POST" });
     router.push("/login");
     router.refresh();
   };
+  // gunakan resolvedTheme agar SSR & client sama
+  const currentTheme = mounted ? resolvedTheme : "light";
 
   return (
     <header className="sticky top-0 z-30 h-16 py-5 bg-white dark:bg-slate-900 border-b border-slate-200 dark:border-slate-800 shadow-sm flex items-center justify-between px-4 lg:px-6">
@@ -63,7 +69,7 @@ const Header: React.FC<HeaderProps> = ({ onMenuClick }) => {
         <DropdownMenu>
           <DropdownMenuTrigger asChild>
             <Button variant="ghost" size="icon">
-              {theme === "dark" ? (
+              {currentTheme === "dark" ? (
                 <Moon className="h-5 w-5" />
               ) : (
                 <Sun className="h-5 w-5" />
